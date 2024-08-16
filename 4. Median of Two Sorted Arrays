@@ -1,0 +1,39 @@
+double findMedianSortedArrays(int* arr, int s, int* arr1, int s2) {
+    int size = s+s2,a=0,z=0;
+    int arrr[size];
+    while(a!=s)
+    {
+        arrr[a]=arr[a];
+        a++;
+    }
+    while (a!=size)
+    {
+        
+        arrr[a]=arr1[z];
+        z++;
+        a++;
+    }
+   
+    for(int x = 0 ; x < size ; x++)
+    {
+        for(int y = x+1 ; y < size ; y++)
+        {
+            if(arrr[x]>arrr[y])
+            {
+                int temp = arrr[x];
+                arrr[x]=arrr[y];
+                arrr[y]=temp;
+            }
+        }
+    }
+    if(size%2==0)
+    {
+        int qw = size/2;
+        double wew = arrr[qw-1]+arrr[qw];
+        wew=wew/2;
+        return wew;
+    }
+    return arrr[size/2];
+    
+}
+    
