@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int low = -1 , high = -1 , s = nums.size();
+        vector<int>v;
+        for(int x = 0 ; x < s ; x++ )
+        {
+            if(nums[x] == target)
+            {
+                if(low == -1)
+                {
+                   high = low = x;
+                }
+                else 
+                high = x;
+            }
+        }
+        v.push_back(low);
+        v.push_back(high);
+        return v;
+    }
+};
