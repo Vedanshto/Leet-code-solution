@@ -1,0 +1,15 @@
+
+int maxSubArray(int* arr, int s) {
+    int maxe = arr[0];
+    int sum = 0;
+    for(int x = 0 ; x < s ; x++ )
+    {
+        sum=sum+arr[x];
+        maxe = fmax(maxe , sum);
+        if(sum < 0 )
+        {
+            sum = 0;
+        }
+    }
+    return maxe;
+}
