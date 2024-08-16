@@ -1,0 +1,11 @@
+int search(int* arr, int size, int target) {
+    for(int x = 0 ; x < size ; x++ )
+    {
+        if(arr[x]==target)
+        {
+            return x ;
+        }
+    }
+    return -1;
+    
+}
