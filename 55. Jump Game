@@ -1,0 +1,18 @@
+bool canJump(int* arr, int s) {
+    
+
+    int temp = 0;
+    for(int x = 0 ; x < s ; x++)
+    {
+        if(temp < x ) break;
+        
+         
+         if(temp < arr[x]+x)
+         {
+            temp = arr[x]+x;
+         }
+         if(temp>=s-1) return true;
+    }
+    
+    return 0;
+}
