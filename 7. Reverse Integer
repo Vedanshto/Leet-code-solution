@@ -1,0 +1,15 @@
+int reverse(int x)
+{
+   long  a = 0,b,c;
+ while(x!=0)
+ {
+    b=x%10;
+    a=a*10+b;
+    x=x/10;
+
+ }
+ if(a>INT_MAX || a<INT_MIN) return 0;
+        return a;
+
+
+}
