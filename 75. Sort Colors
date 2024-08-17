@@ -1,0 +1,16 @@
+void sortColors(int* arr, int s) {
+    for(int x = 0 ; x < s ; x++ )
+
+    {
+        for(int y = x+1 ; y < s ; y++ )
+        {
+            if(arr[x]>=arr[y])
+            {
+            int temp = arr[x];
+            arr[x]=arr[y];
+            arr[y]=temp;
+            }
+        }
+    }
+    
+}
