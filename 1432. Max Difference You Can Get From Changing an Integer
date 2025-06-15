@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int maxDiff(int temp) {
+        string num = to_string(temp);
+        int n = num.size();
+        char p1 , p2;
+        bool chk1=false,chk2=false , f = false;
+        if(num[0] > '1') 
+        {
+            p2 = num[0];
+            chk2= true;
+            f = true;
+
+        }
+        for(int x = 0 ; x < n ; x++ )
+        {
+            if(num[x] < '9' && chk1 == false)
+            {
+                p1= num[x];
+                chk1 = true;
+            }
+            if(num[x] >= '1' &&  chk2 == false && num[x] != num[0])
+            {
+                p2 = num[x];
+                chk2 = true;
+               
+            }
+        }
+        string s2 = num;
+        for(int x = 0 ; x < n ; x++ )
+        {
+            if(num[x] == p1)
+            {
+                num[x] = '9';
+            }
+            if(s2[x] == p2 && chk2 == true) {
+                s2[x] = f ? '1' : '0';
+            }
+            
+        }
+        int ans = stoi(num)-stoi(s2);
+        cout<<num<<endl<<s2<<endl;
+        return ans;
+    }
+};
