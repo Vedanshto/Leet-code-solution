@@ -1,0 +1,97 @@
+important tree question  > Tree Boundary Traversal
+
+code : 
+
+ /*
+// Tree Node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    // Constructor to initialize a new node
+    Node(int val) {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    
+     void lft(vector<int>&ans,Node *root)
+     {
+        if(root == nullptr) return;
+        
+        if(root ->left != nullptr){
+            ans.push_back(root->data);
+            lft(ans,root->left);
+        }
+        else if( root->right != nullptr)
+        {
+             ans.push_back(root->data);
+            lft(ans,root->right);
+        }
+     }
+     
+     void leef(vector<int>&ans,Node *root)
+     {
+         if(root == nullptr) return;
+         
+         if(root ->left == nullptr && root->right == nullptr)
+         {
+             ans.push_back(root->data);
+         }
+         if(root -> left != nullptr) leef(ans,root->left);
+         if(root -> right != nullptr) leef(ans,root->right);
+     }
+     void right(stack<int>&st,Node *root)
+     {
+         if(root == nullptr) return;
+         
+         if(root -> right != nullptr) 
+         {
+             st.push(root->data);
+             right(st,root->right);
+         }
+         else if(root ->left != nullptr){
+            st.push(root->data);
+            right(st,root->left);
+        }
+     }
+
+    vector<int> boundaryTraversal(Node *root) {
+        // code here
+    vector<int>ans;
+    
+    stack<int>st;
+    
+    if(root == nullptr) return ans;
+    
+    ans.push_back(root->data);
+    
+    lft(ans,root->left);;
+    leef(ans,root->left);
+    leef(ans,root->right);
+
+    if(root->right != nullptr)
+    {
+        right(st,root->right);
+    }
+        
+        while(!st.empty())
+        {
+            ans.push_back(st.top());
+            st.pop();
+        }
+    return ans;
+    }
+    
+    
+};
+
+
+
